@@ -31,17 +31,11 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         python-version: ["3.11"]
-<<<<<<< before updating
+        node-version: [22.x]
         airflow: ["2", "3", ""]
 
     steps:
-    - uses: actions/checkout@v7
-=======
-        node-version: [22.x]
-
-    steps:
     - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
->>>>>>> after updating
 
     - uses: actions-ext/python/setup@main
       with:
@@ -80,7 +74,7 @@ jobs:
     - name: Upload test results
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
       with:
-        name: test-results-${{ matrix.os }}-${{ matrix.python-version }}
+        name: test-results-${{ matrix.os }}-${{ matrix.python-version }}-${{ matrix.node-version }}-${{ matrix.airflow }}
         path: '**/junit.xml'
       if: matrix.airflow == '2'
 
@@ -103,17 +97,15 @@ jobs:
     - uses: actions-ext/python/test-wheel@main
       with:
         module: airflow_config
-      if: matrix.os == 'ubuntu-latest'
+      if: matrix.airflow == '2'
 
     - uses: actions-ext/python/test-sdist@main
       with:
         module: airflow_config
-      if: matrix.os == 'ubuntu-latest'
+      if: matrix.airflow == '2'
 
     - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
       with:
         name: dist-${{matrix.os}}
         path: dist
       if: matrix.airflow == '2'
-
-

@@ -120,10 +120,7 @@ docs/html
 docs/index.md
 docs/jupyter_execute
 docs/src/_build/
-<<<<<<< before updating
-=======
 docs/superpowers
->>>>>>> after updating
 index.md
 
 # JS
@@ -158,9 +155,6 @@ emsdk
 ROADMAP.md
 AGENTS.md
 .github/hooks/sdlc.json
-<<<<<<< before updating
 
 airflow_config/ui/static/
-=======
 .superpowers
->>>>>>> after updating
