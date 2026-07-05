@@ -5,6 +5,8 @@ __pycache__/
 
 # C extensions
 *.a
+*.o
+*.dSYM
 *.so
 *.obj
 *.dll
@@ -13,6 +15,7 @@ __pycache__/
 
 # Rust
 target
+target-capi
 
 # Distribution / packaging
 .Python
@@ -117,10 +120,7 @@ docs/html
 docs/index.md
 docs/jupyter_execute
 docs/src/_build/
-<<<<<<< before updating
-=======
 docs/superpowers
->>>>>>> after updating
 index.md
 
 # JS
@@ -141,15 +141,15 @@ airflow_config/extension
 airflow_config/nbextension
 airflow_config/labextension
 
+# Emscripten SDK (locally installed)
+emsdk
+
 # Mac
 .DS_Store
 
-# Rust
-target
-
 # Hydra
-outputs/
-multirun/
+/outputs/
+/multirun/
 
 # AI
 ROADMAP.md
@@ -157,3 +157,4 @@ AGENTS.md
 .github/hooks/sdlc.json
 
 airflow_config/ui/static/
+.superpowers
